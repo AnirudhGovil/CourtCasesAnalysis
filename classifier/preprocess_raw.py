@@ -8,7 +8,7 @@ df = df[df['disp_name'].isin([8,9,10,11])]
 df = df.reset_index(drop=True)
 
 # Drop all columns except for "act", "section", "judge_position","criminal","type_name","purpose_name","disp_name".
-df = df[["act", "section", "judge_position","criminal","type_name","purpose_name","disp_name"]]
+df = df[["act", "section", "judge_position","criminal","state_code","dist_code","court_no","female_defendant","female_petitioner","type_name","purpose_name","disp_name"]]
 
 # Drop all rows with NaN values.
 df = df.dropna()

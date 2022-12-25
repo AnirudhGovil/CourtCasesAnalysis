@@ -22,7 +22,11 @@ Requirements are Pandas and Matplotlib
 
 # CLassification
 
-Predict the disciplinary action based on the 
+Predict the whether the bail will be refused, granted, ordered or rejected based on the a series of other paramters.
+
+Uses a random forest classifier.
+
+Run aggregator, then preprocess_raw, then classifier.py
 
 
 
