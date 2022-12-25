@@ -54,6 +54,7 @@ plt.pyplot.axvline(court_counts.mean(), color='r', linestyle='dashed', linewidth
 plt.pyplot.axvline(court_counts.median(), color='g', linestyle='dashed', linewidth=2, label='Median')
 
 # Save the plot to data/custom/court_counts.png
+plt.figsize=(20,10)
 plt.pyplot.savefig('data/custom/court_counts.png')
 
 # Save the results to data/custom/court_counts.csv

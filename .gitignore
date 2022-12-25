@@ -130,3 +130,7 @@ dmypy.json
 
 # Data
 data/
+
+# Classifier data
+classifier/raw_data.csv
+classifier/preprocessed_data.csv
