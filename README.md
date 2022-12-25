@@ -4,7 +4,13 @@ Analysis and classification of Indian Court Cases
 
 # Bibliography
 
+https://www.devdatalab.org/judicial-data
+
 https://devdatalab.medium.com/big-data-for-justice-f53e0e14c9c9
+
+http://paulnovosad.com/pdf/india-judicial-bias.pdf
+
+Relevant Documentation 
 
 # Analysis
 
@@ -27,8 +33,4 @@ Predict the whether the bail will be refused, granted, ordered or rejected based
 Uses a random forest classifier.
 
 Run aggregator, then preprocess_raw, then classifier.py
-
-
-
-
 
