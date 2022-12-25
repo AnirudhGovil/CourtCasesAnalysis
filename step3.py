@@ -2,14 +2,30 @@
 import pandas as pd
 import matplotlib as plt
 
-# Read the data from data/custom/cases_2018_criminal.csv where date_of_filing is no more than 1 year before date_of_decision
-df = pd.read_csv('data/custom/cases_2018_criminal.csv', parse_dates=['date_of_filing', 'date_of_decision'])
+# Read the data from data/custom/cases_2018_criminal.csv 
+df = pd.read_csv('data/custom/cases_2018_criminal.csv')
+
+# Drop all rows where ddl_decision_judge_id is NaN
+df = df.dropna(subset=['ddl_decision_judge_id'])
+
+# Drop all rows where date_of_filing is NaN
+df = df.dropna(subset=['date_of_filing'])
+
+# Convert the date_of_filing column to datetime
+df['date_of_filing'] = pd.to_datetime(df['date_of_filing'])
+
+# For each unique value of ddl_decision_judge_id, find how many cases were filed
+temp = df.groupby('ddl_decision_judge_id').apply(lambda x: x['date_of_filing'].count())
+
+# Drop all rows where date_of_decision is NaN
+df = df.dropna(subset=['date_of_decision'])
+
+# Convert the date_of_decision column to datetime
+df['date_of_decision'] = pd.to_datetime(df['date_of_decision'])
 
 # Print the first 5 rows of the data
 print(df.head())
 
-# For each unique value of ddl_decision_judge_id, find how many cases were filed
-temp = df.groupby('ddl_decision_judge_id').apply(lambda x: x['date_of_filing'].count())
 
 # For each unique value of ddl_decision_judge_id, find how many cases were decided within 1 year of filing
 judge_counts = df.groupby('ddl_decision_judge_id').apply(lambda x: (x['date_of_decision'] - x['date_of_filing']).dt.days.le(365).sum())

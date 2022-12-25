@@ -12,7 +12,7 @@ acts = pd.read_csv('data/acts_sections.csv')
 
 # For all rows of the data, use ddl_case_id to join the data with acts and save the result in a new variable
 
-joined = df.merge(acts, left_on='ddl_case_id', right_on='ddl_case_id')
+joined = df.merge(acts, left_on='ddl_case_id', right_on='ddl_case_id', how='left')
 
 # Print the first 5 rows of the joined data
 print(joined.head())
